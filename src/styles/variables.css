@@ -1,0 +1,116 @@
+:root {
+  /* NOUVELLE PALETTE DE COULEURS */
+  --color-primary: #E07A5F;     /* Orange terracotta - couleur principale */
+  --color-secondary: #F4F1DE;   /* Beige crème - couleur secondaire */
+  --color-third: #3D405B;       /* Bleu-gris foncé - couleur tertiaire */
+  
+  /* Variantes de la couleur principale */
+  --primary-light: #E8937A;     /* Primary plus clair */
+  --primary-dark: #D85A3A;      /* Primary plus foncé */
+  --primary-alpha-10: rgba(224, 122, 95, 0.1);
+  --primary-alpha-20: rgba(224, 122, 95, 0.2);
+  --primary-alpha-30: rgba(224, 122, 95, 0.3);
+  
+  /* Variantes de la couleur secondaire */
+  --secondary-light: #F7F5E8;   /* Secondary plus clair */
+  --secondary-dark: #EDE8C8;    /* Secondary plus foncé */
+  --secondary-alpha-10: rgba(244, 241, 222, 0.1);
+  --secondary-alpha-20: rgba(244, 241, 222, 0.2);
+  --secondary-alpha-30: rgba(244, 241, 222, 0.3);
+  
+  /* Variantes de la couleur tertiaire */
+  --third-light: #5A5E7A;       /* Third plus clair */
+  --third-dark: #2A2D42;        /* Third plus foncé */
+  --third-alpha-10: rgba(61, 64, 91, 0.1);
+  --third-alpha-20: rgba(61, 64, 91, 0.2);
+  --third-alpha-30: rgba(61, 64, 91, 0.3);
+
+  /* Backgrounds avec nouvelle palette */
+  --bg-primary: var(--color-secondary);           /* F4F1DE - fond principal */
+  --bg-secondary: var(--secondary-light);         /* Fond secondaire plus clair */
+  --bg-tertiary: var(--secondary-dark);           /* Fond tertiaire plus foncé */
+  
+  /* Glassmorphisme avec nouvelle palette */
+  --glass-ultra-light: var(--secondary-alpha-10);  /* F4F1DE avec 10% opacité */
+  --glass-light: var(--secondary-alpha-20);        /* F4F1DE avec 20% opacité */
+  --glass-medium: var(--secondary-alpha-30);       /* F4F1DE avec 30% opacité */
+  --glass-strong: rgba(244, 241, 222, 0.4);        /* F4F1DE avec 40% opacité */
+  --glass-ultra-strong: rgba(244, 241, 222, 0.5);  /* F4F1DE avec 50% opacité */
+  
+  /* Bordures glassmorphisme */
+  --glass-border-light: rgba(224, 122, 95, 0.15);    /* Primary avec faible opacité */
+  --glass-border-medium: rgba(224, 122, 95, 0.25);   /* Primary avec opacité moyenne */
+  --glass-border-strong: rgba(224, 122, 95, 0.35);   /* Primary avec forte opacité */
+  
+  /* Gradients avec nouvelle palette */
+  --accent-gradient: linear-gradient(135deg, var(--color-primary), var(--primary-dark));
+  --accent-gradient-warm: linear-gradient(135deg, var(--primary-light), var(--color-primary));
+  --accent-gradient-cool: linear-gradient(135deg, var(--color-third), var(--third-light));
+  --accent-gradient-neutral: linear-gradient(135deg, var(--color-secondary), var(--secondary-dark));
+  
+  /* Couleurs de texte */
+  --text-primary: var(--color-third);      /* 3D405B - texte principal */
+  --text-secondary: var(--third-light);    /* Version plus claire pour texte secondaire */
+  --text-light: var(--color-secondary);    /* F4F1DE - texte clair */
+  --text-accent: var(--color-primary);     /* E07A5F - texte accent */
+  
+  /* Couleurs d'accent */
+  --accent-primary: var(--color-primary);     /* E07A5F */
+  --accent-secondary: var(--color-third);     /* 3D405B */
+  --accent-tertiary: var(--color-secondary);  /* F4F1DE */
+  
+  /* Typographie (inchangée) */
+  --font-heading: 'Space Grotesk', sans-serif;
+  --font-body: 'Inter', sans-serif;
+  --heading-size: clamp(3rem, 8vw, 8rem);
+  --subheading-size: clamp(1.5rem, 4vw, 3rem);
+  --body-size: clamp(1rem, 2vw, 1.125rem);
+  
+  /* Animations (inchangées) */
+  --transition-smooth: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-slow: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  --transition-bounce: all 0.5s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+  
+  /* Ombres avec nouvelle palette */
+  --shadow-glass-light: 0 4px 16px var(--primary-alpha-10);
+  --shadow-glass-medium: 0 8px 24px var(--primary-alpha-20);
+  --shadow-glass-strong: 0 12px 32px var(--primary-alpha-30);
+  
+  /* Blur values (inchangées) */
+  --blur-light: blur(10px);
+  --blur-medium: blur(20px);
+  --blur-strong: blur(30px);
+  --blur-ultra: blur(40px);
+  
+  /* Z-index layers (inchangées) */
+  --z-background: -10;
+  --z-content: 1;
+  --z-card: 10;
+  --z-card-hover: 20;
+  --z-navigation: 1000;
+  --z-modal: 2000;
+
+  /* Couleurs de statut avec nouvelle palette */
+  --status-success: #81C784;      /* Vert succès */
+  --status-warning: var(--color-primary);  /* Orange warning (notre primary) */
+  --status-error: #E57373;        /* Rouge erreur */
+  --status-info: var(--color-third);       /* Bleu info (notre third) */
+  
+  /* Couleurs spécifiques aux composants */
+  --button-primary-bg: var(--accent-gradient);
+  --button-primary-hover: var(--accent-gradient-warm);
+  --button-secondary-bg: var(--glass-medium);
+  --button-secondary-hover: var(--glass-strong);
+  
+  /* Navigation */
+  --nav-bg: var(--glass-light);
+  --nav-bg-scrolled: var(--glass-strong);
+  --nav-border: var(--glass-border-light);
+  --nav-border-scrolled: var(--glass-border-medium);
+  
+  /* Cards et éléments interactifs */
+  --card-bg: var(--glass-medium);
+  --card-bg-hover: var(--glass-strong);
+  --card-border: var(--glass-border-medium);
+  --card-border-hover: var(--glass-border-strong);
+}
