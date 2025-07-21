@@ -9,6 +9,7 @@ interface GlassCardProps {
   variant?: 'light' | 'medium' | 'strong' | 'ultra-strong';
   hover?: boolean;
   animated?: boolean;
+  onClick?: () => void;
 }
 
 const GlassCard: React.FC<GlassCardProps> = ({ 
@@ -16,7 +17,8 @@ const GlassCard: React.FC<GlassCardProps> = ({
   className = '', 
   variant = 'medium',
   hover = true,
-  animated = true
+  animated = true,
+  onClick
 }) => {
   const variants = {
     light: {
