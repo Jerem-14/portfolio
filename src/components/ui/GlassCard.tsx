@@ -66,7 +66,10 @@ const GlassCard: React.FC<GlassCardProps> = ({
   const motionProps = animated ? {
     initial: { opacity: 0, y: 20 },
     whileInView: { opacity: 1, y: 0 },
-    transition: { duration: 0.6, ease: 'easeOut' },
+    transition: { 
+      duration: 0.6, 
+      ease: [0.6, -0.05, 0.01, 0.99] as const // Fix: Convert string to number array
+    },
     whileHover: hover ? hoverStyles : {},
     viewport: { once: true },
     layout: true, // Évite les bugs de layout
@@ -76,6 +79,7 @@ const GlassCard: React.FC<GlassCardProps> = ({
     <Component
       style={baseStyle}
       className={`relative overflow-hidden ${className}`}
+      onClick={onClick}
       {...motionProps}
     >
       {/* Reflet glassmorphisme - Position absolue sécurisée */}

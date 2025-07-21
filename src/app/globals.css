@@ -140,22 +140,9 @@ textarea:focus {
   border-color: var(--color-primary);
 }
 
-/* Optimisations pour navbar fixe avec glassmorphisme */
-.navbar-optimized {
-  position: fixed !important;
-  top: 0;
-  left: 0;
-  right: 0;
-  z-index: var(--z-navigation);
-  width: 100%;
-  transform: translateZ(0);
-  -webkit-transform: translateZ(0);
-  will-change: transform, background-color, backdrop-filter;
-}
-
 /* Compensation pour éviter que le contenu passe sous la navbar */
 body {
-  padding-top: 88px; /* Hauteur optimisée de la navbar */
+  padding-top: 88px; /* Hauteur de la navbar */
 }
 
 /* Assure que les sections ont le bon scroll-padding pour les ancres */

@@ -28,22 +28,21 @@ const Navigation: React.FC = () => {
       }}
       transition={{ 
         duration: 0.6, 
-        ease: [0.25, 0.46, 0.45, 0.94] // Ease out quart
+        ease: [0.25, 0.46, 0.45, 0.94]
       }}
-      className="fixed top-0 left-0 right-0 w-full px-6 py-4 navbar-optimized"
+      className="fixed top-0 left-0 right-0 w-full px-6 py-4 z-[1000]"
       style={{
         background: isScrolled 
-          ? 'var(--nav-bg-scrolled)' 
-          : 'var(--nav-bg)',
-        backdropFilter: isScrolled ? 'var(--blur-strong)' : 'var(--blur-medium)',
-        WebkitBackdropFilter: isScrolled ? 'var(--blur-strong)' : 'var(--blur-medium)',
+          ? 'rgba(244, 241, 222, 0.85)' 
+          : 'rgba(244, 241, 222, 0.3)',
+        backdropFilter: isScrolled ? 'blur(30px)' : 'blur(20px)',
+        WebkitBackdropFilter: isScrolled ? 'blur(30px)' : 'blur(20px)',
         borderBottom: isScrolled 
-          ? '1px solid var(--nav-border-scrolled)' 
-          : '1px solid var(--nav-border)',
+          ? '1px solid rgba(224, 122, 95, 0.3)' 
+          : '1px solid rgba(224, 122, 95, 0.15)',
         boxShadow: isScrolled 
-          ? 'var(--shadow-glass-medium)' 
-          : 'var(--shadow-glass-light)',
-        zIndex: 'var(--z-navigation)',
+          ? '0 8px 24px rgba(224, 122, 95, 0.15)' 
+          : '0 4px 16px rgba(224, 122, 95, 0.1)',
         willChange: 'transform, opacity, background, backdrop-filter',
         transition: 'background 0.4s ease, backdrop-filter 0.4s ease, border-bottom 0.4s ease, box-shadow 0.4s ease',
       }}
@@ -55,7 +54,7 @@ const Navigation: React.FC = () => {
           whileTap={{ scale: 0.98 }}
           className="text-2xl font-heading font-bold"
           style={{ 
-            background: 'var(--accent-gradient)',
+            background: 'linear-gradient(135deg, #E07A5F, #D85A3A)',
             WebkitBackgroundClip: 'text',
             WebkitTextFillColor: 'transparent',
             backgroundClip: 'text',
@@ -74,7 +73,7 @@ const Navigation: React.FC = () => {
               href={`#${item.toLowerCase().replace(' ', '-').replace('à', 'a')}`}
               className="relative text-base font-medium transition-colors duration-300 hover:text-orange-600"
               style={{ 
-                color: 'var(--text-primary)', // Utilise la variable CSS
+                color: '#3D405B',
                 position: 'relative',
                 zIndex: 2,
               }}
@@ -87,7 +86,7 @@ const Navigation: React.FC = () => {
               <motion.div
                 className="absolute -bottom-1 left-0 h-0.5 rounded-full"
                 style={{ 
-                  background: 'var(--accent-gradient)',
+                  background: 'linear-gradient(90deg, #E07A5F, #D85A3A)',
                   zIndex: 1 
                 }}
                 initial={{ width: 0 }}
@@ -108,14 +107,14 @@ const Navigation: React.FC = () => {
 
       {/* Mobile menu button */}
       <div className="md:hidden flex items-center">
-        <motion.button 
-          className="p-2 rounded-lg"
-          style={{
-            background: 'var(--glass-medium)',
-            backdropFilter: 'var(--blur-light)',
-            border: '1px solid var(--glass-border-light)',
-            color: 'var(--text-primary)'
-          }}
+                  <motion.button 
+            className="p-2 rounded-lg"
+            style={{
+              background: 'rgba(244, 241, 222, 0.3)',
+              backdropFilter: 'blur(10px)',
+              border: '1px solid rgba(224, 122, 95, 0.2)',
+              color: '#3D405B'
+            }}
           whileHover={{ scale: 1.02 }}
           whileTap={{ scale: 0.98 }}
         >
