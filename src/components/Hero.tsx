@@ -69,7 +69,7 @@ const Hero: React.FC = () => {
             <p className="text-lg leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
               Je transforme vos idées en applications web robustes et sécurisées. 
               Spécialisé en développement moderne et audit cybersécurité, 
-              j`&apos;`'accompagne les entreprises dans leur transformation digitale.
+              j`&apos;`accompagne les entreprises dans leur transformation digitale.
             </p>
           </GlassCard>
         </motion.div>
