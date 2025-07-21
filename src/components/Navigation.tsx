@@ -70,7 +70,7 @@ const Navigation: React.FC = () => {
           {['À propos', 'Projets', 'Compétences', 'Contact'].map((item, index) => (
             <motion.a
               key={item}
-              href={`#${item.toLowerCase().replace(' ', '-').replace('à', 'a')}`}
+              href={`#${item.toLowerCase().replace(' ', '-').replace('à', 'a').replace('é', 'e')}`}
               className="relative text-base font-medium transition-colors duration-300 hover:text-orange-600"
               style={{ 
                 color: '#3D405B',
