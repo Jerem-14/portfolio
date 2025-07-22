@@ -88,14 +88,14 @@
 }
 
 ::-webkit-scrollbar-thumb {
-  background: var(--glass-strong);
+  background: var(--color-primary); /* E07A5F - toujours orange */
   border-radius: 4px;
   backdrop-filter: var(--blur-light);
   border: 1px solid var(--glass-border-light);
 }
 
 ::-webkit-scrollbar-thumb:hover {
-  background: var(--color-primary); /* E07A5F */
+  background: var(--primary-dark); /* D85A3A - orange plus foncé au hover */
 }
 
 /* Optimisations performances */
@@ -140,10 +140,10 @@ textarea:focus {
   border-color: var(--color-primary);
 }
 
-/* Compensation pour éviter que le contenu passe sous la navbar */
-body {
+/* Compensation pour éviter que le contenu passe sous la navbar - désactivé pour permettre un meilleur comportement sticky */
+/* body {
   padding-top: 88px; /* Hauteur de la navbar */
-}
+/* } */
 
 /* Assure que les sections ont le bon scroll-padding pour les ancres */
 html {
