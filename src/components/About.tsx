@@ -11,7 +11,7 @@ const About: React.FC = () => {
   const experiences = [
     {
       id: 1,
-      role: "Développeur Web",
+      role: "Concepteur / Développeur Web",
       company: "Enedis DR AFC",
       period: "Septembre 2023 - Septembre 2025",
       type: "Alternance",
@@ -67,9 +67,9 @@ const About: React.FC = () => {
 
   const stats = [
     { label: "Années d'expérience", value: "4+", icon: <Calendar className="w-5 h-5" /> },
-    { label: "Projets réalisés", value: "10+", icon: <Award className="w-5 h-5" /> },
-    { label: "Technologies maîtrisées", value: "8+", icon: <Code className="w-5 h-5" /> },
-    { label: "Clients satisfaits", value: "20+", icon: <Users className="w-5 h-5" /> }
+    { label: "Projets réalisés", value: "20+", icon: <Award className="w-5 h-5" /> },
+    { label: "Technologies pratiquées", value: "15+", icon: <Code className="w-5 h-5" /> },
+    { label: "Projets d'équipe", value: "15+", icon: <Users className="w-5 h-5" /> }
   ];
 
   return (
