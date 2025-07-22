@@ -405,45 +405,6 @@ const Contact: React.FC = () => {
             </GlassCard>
           </motion.div>
         </div>
-
-        {/* Footer avec réseaux sociaux */}
-        <motion.div
-          initial={{ opacity: 0, y: 30 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          transition={{ duration: 0.8, delay: 0.3 }}
-          viewport={{ once: true }}
-          className="mt-16 text-center"
-        >
-          <GlassCard variant="light" className="inline-block px-8 py-6">
-            <p className="text-lg mb-4" style={{ color: 'var(--text-primary)' }}>
-              Retrouvez-moi aussi sur
-            </p>
-            <div className="flex justify-center space-x-4">
-              {[
-                { icon: <Linkedin className="w-6 h-6" />, url: "https://www.linkedin.com/in/jeremy-aubry-9ba90b189/", color: "#0077B5" },
-                { icon: <Github className="w-6 h-6" />, url: "https://github.com/Jerem-14", color: "#333" },
-                { icon: <Globe className="w-6 h-6" />, url: "https://www.jeremyaubry.fr", color: "#FF6B35" }
-              ].map((social, index) => (
-                <motion.a
-                  key={index}
-                  href={social.url}
-                  target="_blank"
-                  rel="noopener noreferrer"
-                  whileHover={{ scale: 1.1, y: -2 }}
-                  whileTap={{ scale: 0.95 }}
-                  className="p-3 rounded-full transition-all duration-300"
-                  style={{
-                    background: 'var(--glass-medium)',
-                    border: '1px solid var(--glass-border-medium)',
-                    color: social.color
-                  }}
-                >
-                  {social.icon}
-                </motion.a>
-              ))}
-            </div>
-          </GlassCard>
-        </motion.div>
       </div>
     </section>
   );
