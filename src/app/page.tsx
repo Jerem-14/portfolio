@@ -5,9 +5,12 @@ import About from '@/components/About';
 import Skills from '@/components/Skills';
 import Contact from '@/components/Contact';
 import Projects from '@/components/Projects';
+import Footer from '@/components/Footer';
+import ScrollToTop from '@/components/ui/ScrollToTop';
 
 export default function Home() {
   return (
+    <>
     <main className="relative">
       <AnimatedBackground />
       <Navigation />
@@ -17,5 +20,8 @@ export default function Home() {
       <Projects />
       <Contact />
     </main>
+    <Footer />
+    <ScrollToTop />
+    </>
   );
 }
