@@ -114,7 +114,7 @@ const Footer: React.FC = () => {
               </h3>
               <p className="text-base mb-6 leading-relaxed"
                  style={{ color: 'var(--text-secondary)' }}>
-                Développeur Full Stack passionné, spécialisé dans la création d'applications web 
+                Développeur Full Stack passionné, spécialisé dans la création d&apos;applications web 
                 modernes et sécurisées. Je transforme vos idées en solutions digitales innovantes.
               </p>
               
