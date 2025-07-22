@@ -118,33 +118,6 @@ const Footer: React.FC = () => {
                 modernes et sécurisées. Je transforme vos idées en solutions digitales innovantes.
               </p>
               
-              {/* Réseaux sociaux intégrés */}
-              <div className="flex items-center space-x-4 mb-6">
-                {socialLinks.map((social, index) => (
-                  <motion.a
-                    key={social.name}
-                    href={social.url}
-                    target="_blank"
-                    rel="noopener noreferrer"
-                    whileHover={{ scale: 1.1, y: -3 }}
-                    whileTap={{ scale: 0.95 }}
-                    initial={{ opacity: 0, scale: 0.8 }}
-                    whileInView={{ opacity: 1, scale: 1 }}
-                    transition={{ delay: 0.3 + index * 0.1 }}
-                    viewport={{ once: true }}
-                    className="p-3 rounded-lg transition-all duration-300"
-                    style={{
-                      background: 'var(--glass-light)',
-                      border: '1px solid var(--glass-border-light)',
-                    }}
-                  >
-                    <div className={`bg-gradient-to-br ${social.color} bg-clip-text text-transparent`}>
-                      {social.icon}
-                    </div>
-                  </motion.a>
-                ))}
-              </div>
-              
               {/* Bouton CV */}
               <motion.a
                 href="/cv-jeremy-aubry.pdf"
