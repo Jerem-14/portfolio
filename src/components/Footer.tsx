@@ -230,11 +230,7 @@ const Footer: React.FC = () => {
         >
           <p className="text-sm flex items-center justify-center space-x-1"
              style={{ color: 'var(--text-secondary)' }}>
-            <span>© {currentYear} Jeremy AUBRY. Développé avec</span>
-            <Heart className="w-4 h-4 text-red-500 animate-pulse" />
-            <span>et</span>
-            <Code className="w-4 h-4" style={{ color: 'var(--accent-primary)' }} />
-            <span>à Lyon.</span>
+            <span>© {currentYear} Jeremy AUBRY</span>
           </p>
         </motion.div>
       </div>
