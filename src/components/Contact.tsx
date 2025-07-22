@@ -380,7 +380,7 @@ const Contact: React.FC = () => {
                   disabled={isSubmitting}
                   whileHover={{ scale: 1.02 }}
                   whileTap={{ scale: 0.98 }}
-                  className={`w-full flex items-center justify-center space-x-2 py-4 px-6 rounded-lg font-semibold text-white transition-all duration-300 ${
+                  className={`w-full flex items-center justify-center space-x-2 py-4 px-6 cursor-pointer rounded-lg font-semibold text-white transition-all duration-300 ${
                     isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
                   }`}
                   style={{

@@ -103,11 +103,10 @@ const Navigation: React.FC = () => {
             Me contacter
           </GlassButton>
         </div>
-      </div>
 
-      {/* Mobile menu button */}
-      <div className="md:hidden flex items-center">
-                  <motion.button 
+        {/* Mobile menu button */}
+        <div className="md:hidden flex items-center">
+          <motion.button 
             className="p-2 rounded-lg"
             style={{
               background: 'rgba(244, 241, 222, 0.3)',
@@ -115,15 +114,16 @@ const Navigation: React.FC = () => {
               border: '1px solid rgba(224, 122, 95, 0.2)',
               color: '#3D405B'
             }}
-          whileHover={{ scale: 1.02 }}
-          whileTap={{ scale: 0.98 }}
-        >
-          <div className="w-6 h-6 flex flex-col justify-center space-y-1">
-            <div className="w-full h-0.5 bg-current rounded"></div>
-            <div className="w-full h-0.5 bg-current rounded"></div>
-            <div className="w-full h-0.5 bg-current rounded"></div>
-          </div>
-        </motion.button>
+            whileHover={{ scale: 1.02 }}
+            whileTap={{ scale: 0.98 }}
+          >
+            <div className="w-6 h-6 flex flex-col justify-center space-y-1">
+              <div className="w-full h-0.5 bg-current rounded"></div>
+              <div className="w-full h-0.5 bg-current rounded"></div>
+              <div className="w-full h-0.5 bg-current rounded"></div>
+            </div>
+          </motion.button>
+        </div>
       </div>
     </motion.nav>
   );
