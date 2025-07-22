@@ -19,11 +19,10 @@ const Skills: React.FC = () => {
       color: "from-blue-500 to-cyan-500",
       description: "Création d'interfaces utilisateur modernes et réactives",
       skills: [
-        { name: "React.js", level: 90, color: "#61DAFB" },
-        { name: "Angular", level: 85, color: "#DD0031" },
-        { name: "Vue.js 3", level: 80, color: "#4FC08D" },
-        { name: "TypeScript", level: 88, color: "#3178C6" },
-        { name: "HTML/CSS", level: 95, color: "#E34F26" }
+        { name: "React.js", level: 85 },
+        { name: "Angular", level: 75 },
+        { name: "Vue.js 3", level: 75 },
+        { name: "HTML/CSS", level: 95 }
       ]
     },
     {
@@ -33,24 +32,22 @@ const Skills: React.FC = () => {
       color: "from-green-500 to-emerald-500",
       description: "Architectures robustes et APIs performantes",
       skills: [
-        { name: "PHP/Symfony", level: 92, color: "#777BB4" },
-        { name: "Node.js", level: 85, color: "#339933" },
-        { name: "NestJS", level: 80, color: "#E0234E" },
-        { name: "Twig", level: 88, color: "#8DC149" },
-        { name: "RESTful APIs", level: 90, color: "#FF6B35" }
+        { name: "PHP/Symfony", level: 87 },
+        { name: "Node.js", level: 85 },
+        { name: "NestJS", level: 80 },
+        { name: "RESTful APIs", level: 90 }
       ]
     },
     {
       id: 3,
       title: "Databases",
       icon: <Database className="w-8 h-8" />,
-      color: "from-purple-500 to-pink-500",
+      color: "from-amber-500 to-yellow-500",
       description: "Conception et optimisation de systèmes de données",
       skills: [
-        { name: "MySQL", level: 90, color: "#4479A1" },
-        { name: "PostgreSQL", level: 85, color: "#336791" },
-        { name: "MongoDB", level: 82, color: "#47A248" },
-        { name: "Redis", level: 75, color: "#DC382D" }
+        { name: "MySQL", level: 95 },
+        { name: "PostgreSQL", level: 85 },
+        { name: "MongoDB", level: 80 }
       ]
     },
     {
@@ -60,10 +57,10 @@ const Skills: React.FC = () => {
       color: "from-orange-500 to-red-500",
       description: "Déploiement et maintenance d'applications",
       skills: [
-        { name: "Docker", level: 85, color: "#2496ED" },
-        { name: "AWS EC2", level: 80, color: "#FF9900" },
-        { name: "Git/GitHub", level: 92, color: "#F05032" },
-        { name: "Linux", level: 78, color: "#FCC624" }
+        { name: "Docker", level: 85 },
+        { name: "AWS EC2", level: 80 },
+        { name: "Git/GitHub", level: 95 },
+        { name: "Terraform/Kubernetes", level: 70 }
       ]
     },
     {
@@ -73,10 +70,8 @@ const Skills: React.FC = () => {
       color: "from-red-500 to-pink-500",
       description: "Analyse de vulnérabilités et corrections sécuritaires",
       skills: [
-        { name: "Checkmarx", level: 85, color: "#00D4FF" },
-        { name: "OWASP", level: 80, color: "#FF6B35" },
-        { name: "Pentesting", level: 75, color: "#DC143C" },
-        { name: "Security Audit", level: 82, color: "#8A2BE2" }
+        { name: "Checkmarx", level: 85 },
+        { name: "SonarQube", level: 70 }
       ]
     },
     {
@@ -86,10 +81,9 @@ const Skills: React.FC = () => {
       color: "from-pink-500 to-purple-500",
       description: "Conception d'expériences utilisateur optimales",
       skills: [
-        { name: "Figma", level: 88, color: "#F24E1E" },
-        { name: "UI/UX Design", level: 85, color: "#FF6B35" },
-        { name: "Responsive Design", level: 92, color: "#00D4FF" },
-        { name: "Prototyping", level: 80, color: "#9C27B0" }
+        { name: "Figma", level: 88 },
+        { name: "UI/UX Design", level: 80 },
+        { name: "Responsive Design", level: 90 }
       ]
     }
   ];
@@ -150,9 +144,6 @@ const Skills: React.FC = () => {
               Compétences
             </span>
           </h2>
-          <p className="text-xl max-w-3xl mx-auto" style={{ color: 'var(--text-secondary)' }}>
-            Une expertise technique complète pour créer des solutions web modernes et performantes
-          </p>
         </motion.div>
 
         {/* Skills Grid */}
@@ -176,8 +167,6 @@ const Skills: React.FC = () => {
                 variant={hoveredSkill === category.id ? "strong" : "medium"} 
                 className="p-6 h-full relative overflow-hidden"
               >
-                {/* Accent gradient */}
-                <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${category.color}`} />
                 
                 {/* Icon et titre */}
                 <div className="flex items-center space-x-4 mb-4">
@@ -223,8 +212,7 @@ const Skills: React.FC = () => {
                              border: '1px solid var(--glass-border-light)'
                            }}>
                         <motion.div
-                          className="h-full rounded-full relative overflow-hidden"
-                          style={{ backgroundColor: skill.color }}
+                          className={`h-full rounded-full relative overflow-hidden bg-gradient-to-r ${category.color}`}
                           initial={{ width: 0 }}
                           whileInView={{ width: `${skill.level}%` }}
                           transition={{ duration: 1.5, delay: skillIndex * 0.1, ease: "easeOut" }}

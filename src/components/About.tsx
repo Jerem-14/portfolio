@@ -15,9 +15,11 @@ const About: React.FC = () => {
       company: "Enedis DR AFC",
       period: "Septembre 2023 - Septembre 2025",
       type: "Alternance",
-      location: "Lyon, France",
+      location: "Besançon, France",
       icon: <Zap className="w-6 h-6" />,
       color: "from-blue-500 to-cyan-500",
+      textColor: "text-blue-500",
+      bulletColor: "bg-blue-500",
       tasks: [
         "Conception d'application (maquettage et schéma de données)",
         "Développement d'application web Symfony & React|Angular",
@@ -32,9 +34,11 @@ const About: React.FC = () => {
       company: "Agence Web Dioqa",
       period: "Septembre 2021 - Août 2023",
       type: "Alternance",
-      location: "Lyon, France",
+      location: "Rilleux-la-Pape, France",
       icon: <Code className="w-6 h-6" />,
       color: "from-orange-500 to-red-500",
+      textColor: "text-orange-500",
+      bulletColor: "bg-orange-500",
       tasks: [
         "Intégration de maquettes responsives pour sites vitrines et e-commerces sous WordPress",
         "Gestion de projets et animation de réunions clients",
@@ -63,8 +67,8 @@ const About: React.FC = () => {
 
   const stats = [
     { label: "Années d'expérience", value: "4+", icon: <Calendar className="w-5 h-5" /> },
-    { label: "Projets réalisés", value: "25+", icon: <Award className="w-5 h-5" /> },
-    { label: "Technologies maîtrisées", value: "15+", icon: <Code className="w-5 h-5" /> },
+    { label: "Projets réalisés", value: "10+", icon: <Award className="w-5 h-5" /> },
+    { label: "Technologies maîtrisées", value: "8+", icon: <Code className="w-5 h-5" /> },
     { label: "Clients satisfaits", value: "20+", icon: <Users className="w-5 h-5" /> }
   ];
 
@@ -192,8 +196,7 @@ const About: React.FC = () => {
                   whileHover={{ scale: 1.02 }}
                 >
                   <GlassCard variant="medium" className="p-8 relative overflow-hidden">
-                    {/* Accent coloré */}
-                    <div className={`absolute top-0 left-0 w-1 h-full bg-gradient-to-b ${exp.color}`} />
+                    
                     
                     {/* Header */}
                     <div className="flex items-start justify-between mb-6">
@@ -206,7 +209,7 @@ const About: React.FC = () => {
                               style={{ color: 'var(--text-primary)' }}>
                             {exp.role}
                           </h3>
-                          <p className="text-lg font-semibold text-blue-600 mb-1">
+                          <p className={`text-lg font-semibold mb-1 ${exp.textColor}`}>
                             {exp.company}
                           </p>
                           <div className="flex items-center space-x-4 text-sm"
@@ -243,7 +246,7 @@ const About: React.FC = () => {
                           viewport={{ once: true }}
                           className="flex items-start space-x-3"
                         >
-                          <div className="w-2 h-2 rounded-full bg-blue-500 mt-2 flex-shrink-0" />
+                          <div className={`w-2 h-2 rounded-full ${exp.bulletColor} mt-2 flex-shrink-0`} />
                           <p style={{ color: 'var(--text-secondary)' }}>{task}</p>
                         </motion.div>
                       ))}
@@ -278,7 +281,7 @@ const About: React.FC = () => {
                         style={{ color: 'var(--text-primary)' }}>
                       {formation.diploma}
                     </h3>
-                    <p className="text-blue-600 font-medium mb-2">
+                    <p className="text-orange-500 font-medium mb-2">
                       {formation.school}
                     </p>
                     <p className="text-sm" style={{ color: 'var(--text-secondary)' }}>

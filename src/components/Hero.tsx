@@ -38,21 +38,25 @@ const Hero: React.FC = () => {
                 letterSpacing: '-0.02em',
                 color: 'var(--text-primary)'
               }}>
-            Salut, je suis{' '}
+              Jeremy AUBRY 
             <span style={{
               background: 'var(--accent-gradient)',
               WebkitBackgroundClip: 'text',
               WebkitTextFillColor: 'transparent',
               backgroundClip: 'text',
             }}>
-              Jeremy
+              
             </span>
           </h1>
           
           <h2 className="font-heading font-bold mb-6"
               style={{ 
                 fontSize: 'clamp(1.5rem, 4vw, 2.5rem)',
-                color: 'var(--text-secondary)'
+                color: 'var(--text-secondary)',
+                background: 'var(--accent-gradient)',
+              WebkitBackgroundClip: 'text',
+              WebkitTextFillColor: 'transparent',
+              backgroundClip: 'text',
               }}>
             Développeur Full Stack
           </h2>
@@ -68,8 +72,8 @@ const Hero: React.FC = () => {
           <GlassCard variant="medium" className="max-w-3xl mx-auto p-6">
             <p className="text-lg leading-relaxed" style={{ color: 'var(--text-secondary)' }}>
               Je transforme vos idées en applications web robustes et sécurisées. 
-              Spécialisé en développement moderne et audit cybersécurité, 
-              j`&apos;`accompagne les entreprises dans leur transformation digitale.
+              Spécialisé en développement moderne  
+              j&apos;accompagne les entreprises dans leur transformation digitale.
             </p>
           </GlassCard>
         </motion.div>
