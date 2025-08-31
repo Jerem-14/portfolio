@@ -3,11 +3,10 @@
 import React, { useState } from 'react';
 import { motion } from 'framer-motion';
 import { 
-  ExternalLink, Github, Play, Eye, Calendar, Users, Award
+  ExternalLink, Github, Calendar, Users, Award
 } from 'lucide-react';
 import GlassCard from './ui/GlassCard';
-import GlassButton from './ui/GlassButton';
-import ProjectModal from './ui/ProjectModal';
+import Image from 'next/image';
 
 const Projects: React.FC = () => {
   const [selectedProject, setSelectedProject] = useState<Project | null>(null);
@@ -16,14 +15,14 @@ const Projects: React.FC = () => {
     id: number;
     title: string;
     description: string;
-    longDescription: string;
-    problem: string;
-    solution: string;
-    results: string[];
+    longDescription?: string;
+    problem?: string;
+    solution?: string;
+    results?: string[];
     image: string;
-    images: string[];
+    images?: string[];
     technologies: string[];
-    features: string[];
+    features?: string[];
     liveUrl?: string;
     githubUrl?: string;
     status: 'completed' | 'in-progress' | 'concept';
@@ -44,227 +43,67 @@ const Projects: React.FC = () => {
   const projects: Project[] = [
     {
       id: 1,
-      title: "EcoTrack - Suivi Environnemental",
+      title: "MIA - Mon Interlocuteur ASGARD",
       category: "Full Stack",
-      description: "Application web complète pour le suivi des émissions carbone d'entreprise avec dashboard analytics et API REST sécurisée.",
-      longDescription: "Développement d'une solution complète permettant aux entreprises de monitorer leur empreinte carbone en temps réel. Interface intuitive avec visualisations avancées et système de notifications automatiques.",
-      problem: "Les entreprises manquent d'outils simples pour suivre leurs émissions carbone et respecter les réglementations environnementales.",
-      solution: "Application web avec dashboard interactif, API robuste, et système d'alertes automatiques pour un suivi en temps réel.",
-      results: [
-        "Réduction de 30% du temps de reporting environnemental",
-        "Interface adoptée par 5 PME locales",
-        "Score de performance Lighthouse: 95/100",
-        "API gérant 1000+ requêtes/minute"
-      ],
-      image: "/api/placeholder/600/400",
-      images: ["/api/placeholder/800/500", "/api/placeholder/800/500", "/api/placeholder/800/500"],
-      technologies: ["React", "Node.js", "PostgreSQL", "Docker", "AWS EC2", "Chart.js"],
-      features: [
-        "Dashboard analytics en temps réel",
-        "API REST sécurisée avec JWT",
-        "Système de notifications automatiques",
-        "Export de rapports PDF/Excel",
-        "Interface responsive mobile-first"
-      ],
-      liveUrl: "https://ecotrack-demo.jeremyaubry.fr",
-      githubUrl: "https://github.com/Jerem-14/ecotrack",
+      description: "Application web développé chez Enedis permettant a un technicien sur le terrain d'etre redirigé vers le bon interlocuteur d'urgence suivant sa géolocalisation en France. Il y'a tout un interface admin pour configurer les numéros ainsi qu'un dashboard statistique pour consulter le nombres d'appels par Direction Régionnale",
+      image: "/assets/projects/mia.png",
+      technologies: ["React", "Symfony", "PostgreSQL", "Redux", "AWS EC2"],     
       status: "completed",
       difficulty: "advanced",
-      timeline: "3 mois",
-      team: "Solo",
+      timeline: "9 mois",
+      team: "Équipe de 3",
       role: "Full Stack Developer",
       highlight: true,
       metrics: {
-        performance: "95/100 Lighthouse",
-        users: "50+ utilisateurs actifs",
-        security: "Audit OWASP validé",
-        other: "99.9% uptime"
+        users: "50+ utilisateurs actifs"
       }
     },
     {
       id: 2,
-      title: "SecureAudit - Sécurité Bancaire",
-      category: "Cybersécurité",
-      description: "Audit complet de sécurité d'une application bancaire avec correction de 15+ vulnérabilités critiques détectées par Checkmarx.",
-      longDescription: "Mission d'audit cybersécurité sur une application bancaire existante. Identification et correction de vulnérabilités OWASP, implémentation de bonnes pratiques sécuritaires.",
-      problem: "Application bancaire existante avec plusieurs failles de sécurité critiques détectées par les outils d'analyse.",
-      solution: "Audit complet, correction des vulnérabilités, et mise en place d'un pipeline de sécurité automatisé.",
-      results: [
-        "15 vulnérabilités critiques corrigées",
-        "Score de sécurité passé de C à A+",
-        "Certification ISO 27001 obtenue",
-        "Réduction de 90% des risques identifiés"
-      ],
-      image: "/api/placeholder/600/400",
-      images: ["/api/placeholder/800/500", "/api/placeholder/800/500"],
-      technologies: ["Checkmarx", "OWASP ZAP", "PHP", "Symfony", "MySQL", "Docker"],
-      features: [
-        "Audit de sécurité complet OWASP",
-        "Correction de vulnérabilités XSS/SQL",
-        "Implémentation 2FA",
-        "Chiffrement des données sensibles",
-        "Pipeline CI/CD sécurisé"
-      ],
-      githubUrl: "https://github.com/Jerem-14/securebank-audit",
+      title: "Meme-on-rit - Jeu de mémorie en ligne",
+      category: "Full Stack",
+      description: "Jeu en de mémorie en ligne multi-joueurs (2). Utilisation des websockets pour la communication entre les joueurs. Dashboard pour les joueurs afin de consulter divers statistiques et historiques des parties.",
+      image: "/assets/projects/meme-on-rit.png",
+      technologies: ["React", "Node.js", "MySQL", "DaisyUI", "Websockets"],
+      liveUrl: "https://meme-on-rit-neon.vercel.app/",
+      githubUrl: "https://github.com/Jerem-14/jeu_react",
       status: "completed",
       difficulty: "advanced",
-      timeline: "2 mois",
-      team: "Équipe de 3",
-      role: "Security Lead",
-      highlight: true,
-      metrics: {
-        security: "Score A+ (95/100)",
-        performance: "Aucun impact performance",
-        other: "0 incident depuis mise en prod"
-      }
+      timeline: "1 mois",
+      team: "Solo",
+      role: "Full Stack Developer",
+      highlight: true
     },
     {
       id: 3,
-      title: "MediConnect - Télémédecine",
+      title: "Note de Douceur - Institut de beauté",
       category: "Frontend",
-      description: "Interface React moderne pour téléconsultations médicales avec chat vidéo WebRTC intégré et gestion sécurisée des dossiers patients.",
-      longDescription: "Développement front-end d'une plateforme de télémédecine complète permettant aux médecins de consulter leurs patients à distance avec un système de rendez-vous intégré.",
-      problem: "Besoin d'une solution de télémédecine sécurisée et intuitive suite aux restrictions sanitaires.",
-      solution: "Interface React performante avec chat vidéo WebRTC, gestion des dossiers patients et système de paiement intégré.",
-      results: [
-        "1000+ consultations mensuelles",
-        "Temps de chargement < 2 secondes",
-        "Interface accessible WCAG 2.1 AA",
-        "Satisfaction utilisateur: 4.8/5"
-      ],
-      image: "/api/placeholder/600/400",
-      images: ["/api/placeholder/800/500", "/api/placeholder/800/500", "/api/placeholder/800/500"],
-      technologies: ["React", "TypeScript", "WebRTC", "Socket.io", "Stripe", "Tailwind CSS"],
-      features: [
-        "Chat vidéo HD avec WebRTC",
-        "Gestion des rendez-vous",
-        "Dossiers patients sécurisés",
-        "Paiement en ligne Stripe",
-        "Interface responsive"
-      ],
-      liveUrl: "https://mediconnect-demo.jeremyaubry.fr",
-      githubUrl: "https://github.com/Jerem-14/mediconnect",
+      description: "Site e-commerce pour l'institut de beauté Note de Douceur. Possibilité de commander des produits de beauté en ligne ou des RDV pour des soins.",
+      image: "/assets/projects/notededouceur.png",
+      technologies: ["Wordpress", "Woocommerce", "Stripe"],
+      liveUrl: "https://www.notededouceur.com/",
       status: "completed",
-      difficulty: "advanced",
+      difficulty: "intermediate",
       timeline: "4 mois",
-      team: "Équipe de 5",
+      team: "Solo",
       role: "Frontend Lead",
-      metrics: {
-        performance: "98/100 Lighthouse",
-        users: "500+ médecins inscrits",
-        other: "Conformité RGPD validée"
-      }
     },
     {
       id: 4,
-      title: "StockFlow API - Inventaire",
+      title: "Qui veut etre mon associé - API REST ",
       category: "Backend",
-      description: "API REST haute performance en Node.js pour gestion d'inventaire temps réel avec cache Redis et architecture microservices.",
-      longDescription: "Développement d'une API robuste pour la gestion d'inventaire en temps réel, avec système de cache Redis et architecture microservices pour une chaîne de magasins.",
-      problem: "Ancien système de gestion d'inventaire lent et peu fiable pour une chaîne de magasins en expansion.",
-      solution: "API REST moderne avec cache Redis, architecture microservices et monitoring en temps réel.",
-      results: [
-        "Performance 10x supérieure",
-        "Gérer 10,000+ requêtes/minute",
-        "Réduction de 95% des erreurs",
-        "Temps de réponse < 100ms"
-      ],
-      image: "/api/placeholder/600/400",
-      images: ["/api/placeholder/800/500", "/api/placeholder/800/500"],
-      technologies: ["Node.js", "NestJS", "MongoDB", "Redis", "Docker", "Kubernetes"],
-      features: [
-        "API REST documentation Swagger",
-        "Cache Redis intelligent",
-        "Architecture microservices",
-        "Monitoring avec Prometheus",
-        "Tests automatisés 95% coverage"
-      ],
-      githubUrl: "https://github.com/Jerem-14/stockflow-api",
+      description: "API REST en NestJS pour la gestion des associés de l'entreprise.",
+  
+      image: "/assets/projects/qvema.png",
+      technologies: ["NestJS", "MySQL", "Fastify"],
+      
+      githubUrl: "https://github.com/Jerem-14/qvema",
       status: "completed",
       difficulty: "advanced",
       timeline: "3 mois",
-      team: "Équipe de 4",
-      role: "Backend Lead",
-      metrics: {
-        performance: "< 100ms réponse moyenne",
-        users: "50 magasins connectés",
-        other: "99.99% disponibilité"
-      }
-    },
-    {
-      id: 5,
-      title: "TaskFlow - Gestion Projets",
-      category: "Full Stack",
-      description: "Application de gestion de projets avec interface Kanban, collaboration temps réel et système de notifications push.",
-      longDescription: "Plateforme collaborative pour la gestion de projets d'équipe avec tableau Kanban interactif, chat en temps réel et système complet de notifications.",
-      problem: "Équipes dispersées ayant besoin d'un outil de collaboration simple et efficace pour gérer leurs projets.",
-      solution: "Application web avec interface Kanban intuitive, collaboration temps réel et intégrations multiples.",
-      results: [
-        "Adoption par 10+ équipes",
-        "Amélioration de 40% de la productivité",
-        "Interface temps réel fluide",
-        "Intégration avec 5+ outils"
-      ],
-      image: "/api/placeholder/600/400",
-      images: ["/api/placeholder/800/500", "/api/placeholder/800/500"],
-      technologies: ["Vue.js 3", "Laravel", "MySQL", "Socket.io", "Redis", "Docker"],
-      features: [
-        "Tableau Kanban interactif",
-        "Chat équipe temps réel",
-        "Notifications push",
-        "Gestion des deadlines",
-        "Rapports de productivité"
-      ],
-      liveUrl: "https://taskflow.jeremyaubry.fr",
-      githubUrl: "https://github.com/Jerem-14/taskflow",
-      status: "in-progress",
-      difficulty: "intermediate",
-      timeline: "4 mois",
-      team: "Équipe de 3",
-      role: "Full Stack Developer",
-      metrics: {
-        users: "100+ utilisateurs actifs",
-        performance: "< 1s temps de chargement",
-        other: "15+ projets gérés"
-      }
-    },
-    {
-      id: 6,
-      title: "CryptoVault - Portfolio Web3",
-      category: "Blockchain",
-      description: "Application Web3 décentralisée pour gestion de portfolio crypto avec intégration DeFi et analytics avancées.",
-      longDescription: "Plateforme Web3 complète permettant de gérer un portfolio de cryptomonnaies avec intégration DeFi, analytics avancées et alertes personnalisées.",
-      problem: "Besoin d'une interface unifiée pour gérer différents wallets crypto et positions DeFi de manière sécurisée.",
-      solution: "Application Web3 avec connexion multi-wallets, analytics temps réel et intégration protocoles DeFi populaires.",
-      results: [
-        "Intégration 15+ protocoles DeFi",
-        "Gestion de $2M+ en assets",
-        "Interface sécurisée multi-signature",
-        "Analytics temps réel précises"
-      ],
-      image: "/api/placeholder/600/400",
-      images: ["/api/placeholder/800/500", "/api/placeholder/800/500"],
-      technologies: ["React", "Web3.js", "Solidity", "Ethers.js", "The Graph", "MetaMask"],
-      features: [
-        "Connexion multi-wallets",
-        "Analytics DeFi temps réel",
-        "Smart contracts sécurisés",
-        "Alertes prix personnalisées",
-        "Interface multi-signature"
-      ],
-      liveUrl: "https://cryptovault.jeremyaubry.fr",
-      githubUrl: "https://github.com/Jerem-14/crypto-vault",
-      status: "concept",
-      difficulty: "advanced",
-      timeline: "5 mois",
       team: "Solo",
-      role: "Full Stack + Blockchain Developer",
-      metrics: {
-        security: "Audit smart contract validé",
-        users: "$2M+ assets sous gestion",
-        other: "15+ protocoles intégrés"
-      }
-    }
+      role: "Backend Lead",
+    },
   ];
 
   const getDifficultyColor = (difficulty: string) => {
@@ -371,7 +210,15 @@ const Projects: React.FC = () => {
 
                 {/* Image avec overlay */}
                 <div className="relative h-48 bg-gradient-to-br from-blue-500 to-purple-600 rounded-t-lg overflow-hidden">
-                  <div className="absolute inset-0 bg-black bg-opacity-20" />
+                <Image
+                src={project.image}
+                alt={project.title}
+                fill
+                className="object-cover w-full h-full"
+                sizes="(max-width: 768px) 100vw, 50vw"
+                priority={index === 0} // Optionally prioritize the first image
+              />
+                  
                   
                   {/* Badges statut et catégorie */}
                   <div className="absolute top-4 right-4 flex flex-col space-y-2">
@@ -407,15 +254,8 @@ const Projects: React.FC = () => {
                   </div>
                   
                   {/* Overlay hover avec boutons */}
-                  <div className="absolute inset-0 bg-black bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
-                    <motion.button
-                      onClick={() => setSelectedProject(project)}
-                      whileHover={{ scale: 1.1 }}
-                      whileTap={{ scale: 0.95 }}
-                      className="p-3 rounded-full bg-white bg-opacity-20 backdrop-blur-md border border-white border-opacity-30 text-white hover:bg-opacity-30 transition-all duration-300"
-                    >
-                      <Eye className="w-5 h-5" />
-                    </motion.button>
+                  <div className="absolute inset-0 bg-opacity-50 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center space-x-4">
+                    
                     {project.liveUrl && (
                       <motion.a
                         href={project.liveUrl}
@@ -511,12 +351,6 @@ const Projects: React.FC = () => {
           ))}
         </div>
       </div>
-
-      {/* Modal projet */}
-      <ProjectModal 
-        project={selectedProject} 
-        onClose={() => setSelectedProject(null)} 
-      />
     </section>
   );
 };

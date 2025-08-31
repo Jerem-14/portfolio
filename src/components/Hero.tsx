@@ -14,7 +14,7 @@ const Hero: React.FC = () => {
 
   const highlights = [
     { icon: <Code className="w-5 h-5" />, text: "4+ années d'expérience" },
-    { icon: <Zap className="w-5 h-5" />, text: "10+ projets réalisés" },
+    { icon: <Zap className="w-5 h-5" />, text: "20+ projets réalisés" },
     { icon: <Shield className="w-5 h-5" />, text: "Applications robustes et sécurisées" }
   ];
 

@@ -39,15 +39,6 @@ const Contact: React.FC = () => {
       description: "Appelez-moi directement"
     },
     {
-      id: 3,
-      icon: <Globe className="w-6 h-6" />,
-      title: "Site Web",
-      value: "www.jeremyaubry.fr",
-      link: "https://www.jeremyaubry.fr",
-      color: "from-purple-500 to-pink-500",
-      description: "Visitez mon site web"
-    },
-    {
       id: 4,
       icon: <Linkedin className="w-6 h-6" />,
       title: "LinkedIn",
@@ -193,9 +184,7 @@ const Contact: React.FC = () => {
                     className="p-6 h-full relative overflow-hidden group cursor-pointer"
                     onClick={() => info.link && window.open(info.link, '_blank')}
                   >
-                    {/* Accent coloré */}
-                    <div className={`absolute top-0 left-0 w-full h-1 bg-gradient-to-r ${info.color} transform scale-x-0 group-hover:scale-x-100 transition-transform duration-300`} />
-                    
+                   
                     {/* Icon avec fond coloré */}
                     <div className="flex items-start space-x-4">
                       <div className={`p-3 rounded-lg bg-gradient-to-br ${info.color} text-white flex-shrink-0`}>
@@ -231,29 +220,6 @@ const Contact: React.FC = () => {
                 </motion.div>
               ))}
             </div>
-
-            {/* Disponibilité */}
-            <motion.div
-              initial={{ opacity: 0, y: 20 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.5 }}
-              viewport={{ once: true }}
-              className="mt-8"
-            >
-              <GlassCard variant="light" className="p-6">
-                <div className="flex items-center space-x-3 mb-4">
-                  <div className="w-3 h-3 bg-green-500 rounded-full animate-pulse" />
-                  <h4 className="text-lg font-heading font-bold"
-                      style={{ color: 'var(--text-primary)' }}>
-                    Disponible pour de nouveaux projets
-                  </h4>
-                </div>
-                <p style={{ color: 'var(--text-secondary)' }}>
-                  Je suis actuellement ouvert pour de nouvelles opportunités.
-                  N&apos;hésitez pas à me contacter pour discuter de votre projet !
-                </p>
-              </GlassCard>
-            </motion.div>
           </motion.div>
 
           {/* Formulaire de contact */}
