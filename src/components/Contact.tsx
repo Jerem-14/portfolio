@@ -17,6 +17,7 @@ const Contact: React.FC = () => {
     message: ''
   });
   const [isSubmitting, setIsSubmitting] = useState(false);
+  const [submitStatus, setSubmitStatus] = useState<'idle' | 'success' | 'error'>('idle');
   const [hoveredCard, setHoveredCard] = useState<number | null>(null);
 
   const contactInfo = [
@@ -92,13 +93,22 @@ const Contact: React.FC = () => {
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setIsSubmitting(true);
-    
-    // Simulation d'envoi
-    await new Promise(resolve => setTimeout(resolve, 2000));
-    
-    console.log('Form submitted:', formData);
+    setSubmitStatus('idle');
+
+    const res = await fetch('/api/contact', {
+      method: 'POST',
+      headers: { 'Content-Type': 'application/json' },
+      body: JSON.stringify(formData),
+    });
+
     setIsSubmitting(false);
-    setFormData({ name: '', email: '', subject: '', message: '' });
+
+    if (res.ok) {
+      setSubmitStatus('success');
+      setFormData({ name: '', email: '', subject: '', message: '' });
+    } else {
+      setSubmitStatus('error');
+    }
   };
 
   return (
@@ -350,8 +360,8 @@ const Contact: React.FC = () => {
                     isSubmitting ? 'opacity-70 cursor-not-allowed' : ''
                   }`}
                   style={{
-                    background: isSubmitting 
-                      ? 'var(--text-secondary)' 
+                    background: isSubmitting
+                      ? 'var(--text-secondary)'
                       : 'var(--accent-gradient)'
                   }}
                 >
@@ -367,6 +377,17 @@ const Contact: React.FC = () => {
                     </>
                   )}
                 </motion.button>
+
+                {submitStatus === 'success' && (
+                  <p className="text-center text-sm font-medium text-green-500">
+                    Message envoyé ! Je vous répondrai dès que possible.
+                  </p>
+                )}
+                {submitStatus === 'error' && (
+                  <p className="text-center text-sm font-medium text-red-500">
+                    Une erreur s&apos;est produite. Veuillez réessayer ou me contacter directement par email.
+                  </p>
+                )}
               </form>
             </GlassCard>
           </motion.div>
